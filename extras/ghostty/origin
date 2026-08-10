@@ -1,0 +1,23 @@
+# Origin — generated from lua/origin/palette.lua
+background = #050507
+foreground = #DCD9D2
+cursor-color = #DCD9D2
+cursor-text = #050507
+selection-background = #1E2632
+selection-foreground = #DCD9D2
+palette = 0=#050507
+palette = 1=#E77E70
+palette = 2=#82A8E0
+palette = 3=#E8A15F
+palette = 4=#82A8E0
+palette = 5=#9A96A0
+palette = 6=#82A8E0
+palette = 7=#DCD9D2
+palette = 8=#9A96A0
+palette = 9=#E58B7E
+palette = 10=#8FAFDE
+palette = 11=#E6A96F
+palette = 12=#8FAFDE
+palette = 13=#DCD9D2
+palette = 14=#8FAFDE
+palette = 15=#DCD9D2

@@ -1,0 +1,174 @@
+*origin.txt*                          High-contrast colorscheme for Neovim
+
+==============================================================================
+CONTENTS                                                        *origin-contents*
+
+1. Introduction ................................................. |origin|
+2. Requirements ..................................... |origin-requirements|
+3. Setup .................................................. |origin-setup|
+4. Options .............................................. |origin-options|
+5. Commands ............................................ |origin-commands|
+6. Integrations .................................... |origin-integrations|
+7. Terminal themes .............................. |origin-terminal-themes|
+8. Development ........................................ |origin-development|
+
+==============================================================================
+1. INTRODUCTION                                                      *origin*
+
+Origin is a high-contrast dark colorscheme for Neovim. It supports Tree-sitter,
+LSP semantic tokens, legacy Vim syntax, diagnostics, diffs, Git highlights,
+and common plugins.
+
+Context-specific Tree-sitter queries are included for C++, Python, Rust, and
+Racket. Standard Tree-sitter captures provide support for other languages.
+
+==============================================================================
+2. REQUIREMENTS                                        *origin-requirements*
+
+- Neovim 0.9 or newer
+- A terminal with true-color support
+- 'termguicolors' enabled
+
+==============================================================================
+3. SETUP                                                      *origin-setup*
+
+Setup is optional when using the defaults: >lua
+
+  vim.cmd.colorscheme("origin")
+<
+Call setup before loading the colorscheme to change options: >lua
+
+  require("origin").setup({
+    transparent = true,
+  })
+  vim.cmd.colorscheme("origin")
+<
+The matching lualine theme is available as `origin`: >lua
+
+  require("lualine").setup({ options = { theme = "origin" } })
+<
+==============================================================================
+4. OPTIONS                                                  *origin-options*
+
+All options and their defaults: >lua
+
+  require("origin").setup({
+    transparent = false,
+    dim_inactive = false,
+    terminal_colors = true,
+    integrations = true,
+    palette = {},
+    overrides = {},
+    styles = {
+      comments = { italic = true },
+      functions = {},
+      keywords = { bold = true },
+      strings = {},
+      types = {},
+      variables = {},
+    },
+  })
+<
+                                                     *origin-transparent*
+transparent ~
+    Do not set a background on normal editor windows, messages, or sign and
+    fold columns. Floating windows remain opaque.
+
+                                                    *origin-dim-inactive*
+dim_inactive ~
+    Use the muted foreground for inactive windows.
+
+                                                 *origin-terminal-colors*
+terminal_colors ~
+    Set `g:terminal_color_0` through `g:terminal_color_15`.
+
+                                            *origin-integrations-option*
+integrations ~
+    Apply highlights for supported plugins. No plugin code is loaded.
+
+                                                        *origin-palette*
+palette ~
+    Override one or more base colors. Valid keys are `void`, `starlight`,
+    `ash`, `corona`, `redshift`, and `blueshift`. Values must be six-digit hex
+    colors. Generated shades and surfaces are recalculated automatically. >lua
+
+      palette = {
+        corona = "#FFC06E",
+        blueshift = "#82B1FF",
+      }
+<
+                                                         *origin-styles*
+styles ~
+    Merge highlight attributes into syntax groups. Values accept fields
+    supported by `nvim_set_hl()`. Use `false` to disable a default field. >lua
+
+      styles = {
+        comments = { italic = false },
+        types = { bold = true },
+      }
+<
+                                                      *origin-overrides*
+overrides ~
+    A table of final highlight definitions, or a function receiving the
+    resolved palette and returning a table. Overrides are applied after core
+    and plugin highlights. >lua
+
+      overrides = function(colors)
+        return {
+          CursorLineNr = { fg = colors.corona, bold = true },
+          Comment = { fg = colors.ash, italic = false },
+        }
+      end
+<
+==============================================================================
+5. COMMANDS                                                *origin-commands*
+
+:OriginReload                                                   *:OriginReload*
+    Reload Origin's Lua modules and reapply the colorscheme.
+
+:checkhealth origin
+    Check Neovim compatibility, true-color support, palette values, active
+    colorscheme state, and optional lualine availability.
+
+==============================================================================
+6. INTEGRATIONS                                        *origin-integrations*
+
+Origin includes highlights for the following plugin categories:
+
+- Pickers: Telescope, fzf-lua, snacks.nvim
+- Completion: nvim-cmp, blink.cmp
+- Git: GitSigns, Fugitive, Neogit, Diffview, git-conflict
+- File explorers: Neo-tree, nvim-tree, oil.nvim
+- UI: which-key, lazy.nvim, Mason, bufferline, noice, nvim-notify
+- Navigation: nvim-navic, dropbar, aerial, illuminate, treesitter-context
+- Editing: indent-blankline, flash, leap, rainbow-delimiters, mini.nvim
+- Content: render-markdown, todo-comments, trouble
+- Debugging: nvim-dap, nvim-dap-ui
+- Dashboards: alpha-nvim, dashboard-nvim
+- AI: Copilot, Avante, CodeCompanion
+
+Set `integrations = false` to disable these highlight groups.
+
+==============================================================================
+7. TERMINAL THEMES                                *origin-terminal-themes*
+
+Matching themes are provided under `extras/` for Alacritty, foot, Ghostty,
+iTerm2, Kitty, Konsole, Warp, WezTerm, Windows Terminal, and tmux.
+
+Regenerate terminal files after changing the base palette: >sh
+
+  make extras
+<
+See `extras/README.md` for installation instructions.
+
+==============================================================================
+8. DEVELOPMENT                                            *origin-development*
+
+Run the formatter, tests, and generated-file check: >sh
+
+  make format
+  make test
+  make check-extras
+<
+==============================================================================
+vim:tw=78:ts=8:noet:ft=help:norl:

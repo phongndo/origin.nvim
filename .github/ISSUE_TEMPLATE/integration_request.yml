@@ -1,0 +1,24 @@
+name: Integration request
+description: Request support for a Neovim plugin
+title: "[integration] "
+labels: [enhancement]
+body:
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin
+      placeholder: "owner/plugin.nvim"
+    validations:
+      required: true
+  - type: textarea
+    id: groups
+    attributes:
+      label: Highlight groups or documentation
+      description: Link the plugin's highlight documentation when possible.
+  - type: textarea
+    id: example
+    attributes:
+      label: Expected appearance
+      description: Describe how the plugin should look and include a screenshot when possible.
+    validations:
+      required: true

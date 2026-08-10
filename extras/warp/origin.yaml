@@ -1,0 +1,24 @@
+# Origin — generated from lua/origin/palette.lua
+accent: "#DCD9D2"
+background: "#050507"
+details: darker
+foreground: "#DCD9D2"
+terminal_colors:
+  normal:
+    black: "#050507"
+    red: "#E77E70"
+    green: "#82A8E0"
+    yellow: "#E8A15F"
+    blue: "#82A8E0"
+    magenta: "#9A96A0"
+    cyan: "#82A8E0"
+    white: "#DCD9D2"
+  bright:
+    black: "#9A96A0"
+    red: "#E58B7E"
+    green: "#8FAFDE"
+    yellow: "#E6A96F"
+    blue: "#8FAFDE"
+    magenta: "#DCD9D2"
+    cyan: "#8FAFDE"
+    white: "#DCD9D2"

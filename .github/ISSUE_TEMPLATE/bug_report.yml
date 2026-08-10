@@ -1,0 +1,46 @@
+name: Visual bug
+description: Report an incorrect or missing highlight
+title: "[bug] "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve Origin. Please include a small reproduction and screenshot.
+  - type: input
+    id: neovim
+    attributes:
+      label: Neovim version
+      placeholder: "NVIM v0.10.4"
+    validations:
+      required: true
+  - type: input
+    id: terminal
+    attributes:
+      label: Terminal and font
+      placeholder: "Ghostty, Berkeley Mono"
+    validations:
+      required: true
+  - type: input
+    id: plugin
+    attributes:
+      label: Affected plugin or highlight group
+      placeholder: "blink.cmp / BlinkCmpLabelMatch"
+  - type: textarea
+    id: config
+    attributes:
+      label: Minimal configuration
+      render: lua
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What looks wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: health
+    attributes:
+      label: checkhealth output
+      description: Paste the output of `:checkhealth origin`.
+      render: text
