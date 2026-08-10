@@ -71,8 +71,9 @@ All options and their defaults: >lua
 <
                                                      *origin-transparent*
 transparent ~
-    Do not set a background on normal editor windows, messages, or sign and
-    fold columns. Floating windows remain opaque.
+    Let the terminal background show through normal editor windows, floating
+    windows, completion menus, and supported plugin interfaces. Selection and
+    state-specific backgrounds remain visible.
 
                                                     *origin-dim-inactive*
 dim_inactive ~

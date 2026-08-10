@@ -13,6 +13,7 @@ All notable changes to Origin are documented here. This project follows [Semanti
 
 - Lowered the default `starlight` color from `#F7F4ED` to `#DCD9D2` to improve the distinction between regular and bold text.
 - Simplified the README, help file, and contribution guide.
+- Made floating windows, completion menus, and plugin surfaces inherit terminal transparency when `transparent = true`.
 
 ### Fixed
 

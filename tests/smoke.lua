@@ -164,6 +164,22 @@ origin.setup({
 vim.cmd.colorscheme("origin")
 assert(highlight("Normal").bg == nil)
 assert(highlight("NormalNC").fg == hex(c.ash))
+for _, group in ipairs({
+  "NormalFloat",
+  "FloatBorder",
+  "Pmenu",
+  "TelescopeNormal",
+  "TelescopePromptNormal",
+  "FzfLuaNormal",
+  "SnacksNormal",
+  "SnacksPicker",
+  "SnacksPickerInputBorder",
+  "BlinkCmpMenu",
+  "BlinkCmpDoc",
+}) do
+  assert(highlight(group).bg == nil, group .. " should inherit the terminal background")
+end
+assert(highlight("TelescopeSelection").bg == hex(c.selection))
 assert(highlight("DiagnosticWarn").fg == 0xFFFFFF)
 assert(not highlight("Comment").italic)
 assert(highlight("SpecialKey").fg == hex(c.redshift))

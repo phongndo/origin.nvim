@@ -6,7 +6,22 @@ local function apply_groups(groups)
   end
 end
 
-function M.apply(c)
+local function clear_neutral_backgrounds(groups, c)
+  local neutral = {
+    [c.bg] = true,
+    [c.surface0] = true,
+    [c.surface1] = true,
+    [c.surface2] = true,
+  }
+
+  for _, spec in pairs(groups) do
+    if neutral[spec.bg] then
+      spec.bg = "NONE"
+    end
+  end
+end
+
+function M.apply(c, config)
   local groups = {
     -- Telescope ------------------------------------------------------------
     TelescopeNormal = { fg = c.fg, bg = c.surface1 },
@@ -401,6 +416,9 @@ function M.apply(c)
     CodeCompanionVirtualText = { fg = c.muted, italic = true },
   }
 
+  if config.transparent then
+    clear_neutral_backgrounds(groups, c)
+  end
   apply_groups(groups)
 
   -- Use one color for all completion kinds.

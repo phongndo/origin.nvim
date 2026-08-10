@@ -38,16 +38,18 @@ end
 
 function M.apply(c, config)
   local normal_bg = config.transparent and "NONE" or c.bg
+  local float_bg = config.transparent and "NONE" or c.surface1
+  local menu_bg = config.transparent and "NONE" or c.surface1
   local styles = config.styles
 
   local groups = {
     -- Editor chrome ---------------------------------------------------------
     Normal = { fg = c.fg, bg = normal_bg },
     NormalNC = { fg = config.dim_inactive and c.muted or c.fg, bg = normal_bg },
-    NormalFloat = { fg = c.fg, bg = c.surface1 },
-    FloatBorder = { fg = c.border, bg = c.surface1 },
-    FloatTitle = { fg = c.starlight, bg = c.surface1, bold = true },
-    FloatFooter = { fg = c.muted, bg = c.surface1 },
+    NormalFloat = { fg = c.fg, bg = float_bg },
+    FloatBorder = { fg = c.border, bg = float_bg },
+    FloatTitle = { fg = c.starlight, bg = float_bg, bold = true },
+    FloatFooter = { fg = c.muted, bg = float_bg },
     FloatShadow = { bg = c.void, blend = 35 },
     FloatShadowThrough = { bg = c.void, blend = 80 },
     MsgArea = { fg = c.fg, bg = normal_bg },
@@ -84,11 +86,11 @@ function M.apply(c, config)
     TabLineFill = { bg = c.surface0 },
     TabLineSel = { fg = c.void, bg = c.starlight, bold = true },
 
-    Pmenu = { fg = c.fg, bg = c.surface1 },
+    Pmenu = { fg = c.fg, bg = menu_bg },
     PmenuSel = { fg = c.void, bg = c.starlight, bold = true },
-    PmenuKind = { fg = c.muted, bg = c.surface1 },
+    PmenuKind = { fg = c.muted, bg = menu_bg },
     PmenuKindSel = { fg = c.void, bg = c.starlight },
-    PmenuExtra = { fg = c.muted, bg = c.surface1 },
+    PmenuExtra = { fg = c.muted, bg = menu_bg },
     PmenuExtraSel = { fg = c.void, bg = c.starlight },
     PmenuSbar = { bg = c.surface2 },
     PmenuThumb = { bg = c.border },

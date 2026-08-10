@@ -58,7 +58,7 @@ vim.opt.termguicolors = true
 
 ## Configuration
 
-Call `setup()` before `:colorscheme origin`.
+Call `setup()` before `:colorscheme origin`. With `transparent = true`, the terminal background shows through editor windows, floating windows, completion menus, and supported plugin interfaces.
 
 ```lua
 require("origin").setup({

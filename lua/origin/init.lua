@@ -40,7 +40,7 @@ function M.load()
   require("origin.groups").apply(colors, M.config)
 
   if M.config.integrations then
-    require("origin.integrations").apply(colors)
+    require("origin.integrations").apply(colors, M.config)
   end
 
   local overrides = M.config.overrides
