@@ -8,6 +8,7 @@ All notable changes to Origin are documented here. This project follows [Semanti
 
 - Neovim screenshot in the README.
 - hk pre-commit and pre-push checks with pinned development tools.
+- Matching theme for the Pi coding agent.
 
 ### Changed
 

@@ -154,9 +154,10 @@ Set `integrations = false` to disable these highlight groups.
 7. TERMINAL THEMES                                *origin-terminal-themes*
 
 Matching themes are provided under `extras/` for Alacritty, foot, Ghostty,
-iTerm2, Kitty, Konsole, Warp, WezTerm, Windows Terminal, and tmux.
+iTerm2, Kitty, Konsole, Warp, WezTerm, Windows Terminal, and tmux. A matching
+Pi coding agent theme is provided at `extras/pi/origin.json`.
 
-Regenerate terminal files after changing the base palette: >sh
+Regenerate theme files after changing the base palette: >sh
 
   make extras
 <
