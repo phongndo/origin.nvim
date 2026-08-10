@@ -7,11 +7,16 @@ All notable changes to Origin are documented here. This project follows [Semanti
 ### Added
 
 - Neovim screenshot in the README.
+- hk pre-commit and pre-push checks with pinned development tools.
 
 ### Changed
 
 - Lowered the default `starlight` color from `#F7F4ED` to `#DCD9D2` to improve the distinction between regular and bold text.
 - Simplified the README, help file, and contribution guide.
+
+### Fixed
+
+- Passed the repository token to the StyLua action so formatting checks work in private repositories.
 
 ### Removed
 

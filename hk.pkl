@@ -1,0 +1,67 @@
+amends "package://github.com/jdx/hk/releases/download/v1.54.1/hk@1.54.1#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v1.54.1/hk@1.54.1#/Builtins.pkl"
+
+local hygiene = new Mapping<String, Step | Group> {
+  ["merge-conflict"] = Builtins.check_merge_conflict
+  ["private-key"] = Builtins.detect_private_key
+  ["large-file"] = Builtins.check_added_large_files
+  ["case-conflict"] = Builtins.check_case_conflict
+  ["executable-shebang"] = Builtins.check_executables_have_shebangs
+  ["symlinks"] = Builtins.check_symlinks
+  ["bom"] = Builtins.byte_order_marker
+  ["line-endings"] = Builtins.mixed_line_ending
+  ["newlines"] = Builtins.newlines
+  ["trailing-whitespace"] = Builtins.trailing_whitespace
+}
+
+local fast = new Mapping<String, Step | Group> {
+  ...hygiene
+
+  ["stylua"] {
+    glob = List("colors/**/*.lua", "lua/**/*.lua", "scripts/**/*.lua", "tests/**/*.lua")
+    check = "mise x -- stylua --check {{files}}"
+    fix = "mise x -- stylua {{files}}"
+    check_first = true
+  }
+
+  ["actionlint"] = (Builtins.actionlint) {
+    check = "mise x -- actionlint {{files}}"
+  }
+}
+
+local full = new Mapping<String, Step | Group> {
+  ...hygiene
+  ["actionlint"] = fast["actionlint"]
+
+  ["project"] {
+    glob = List(
+      ".stylua.toml",
+      "Makefile",
+      "colors/**",
+      "extras/**",
+      "lua/**",
+      "queries/**",
+      "scripts/**",
+      "tests/**",
+    )
+    check = "make check STYLUA='mise x -- stylua'"
+    exclusive = true
+  }
+}
+
+hooks {
+  ["pre-commit"] {
+    fix = true
+    stash = "git"
+    steps = fast
+  }
+
+  ["pre-push"] { steps = full }
+  ["check"] { steps = full }
+
+  ["fix"] {
+    fix = true
+    stash = "git"
+    steps = fast
+  }
+}

@@ -6,15 +6,24 @@ Contributions and bug reports are welcome.
 
 - Neovim 0.9+
 - GNU Make
-- [StyLua](https://github.com/JohnnyMorganz/StyLua)
+- [mise](https://mise.jdx.dev/) for pinned development tools
 
 ## Development
 
 ```sh
 git clone https://github.com/phongndo/origin.nvim
 cd origin.nvim
+mise install
 make test
 ```
+
+Install the repository's [hk](https://github.com/jdx/hk) hooks:
+
+```sh
+mise x -- hk install --mise
+```
+
+The pre-commit hook fixes formatting and runs repository hygiene checks. The pre-push hook runs the full test and generated-file checks.
 
 The main implementation files are:
 
