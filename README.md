@@ -153,21 +153,6 @@ Set `integrations = false` to disable all plugin highlight groups.
 
 Matching themes are available for Alacritty, foot, Ghostty, iTerm2, Kitty, Konsole, Warp, WezTerm, Windows Terminal, and tmux. See [`extras/README.md`](extras/README.md) for installation instructions.
 
-## Pi
-
-A matching [Pi coding agent](https://github.com/earendil-works/pi) theme is included at [`extras/pi/origin.json`](extras/pi/origin.json). Install and select it with:
-
-```sh
-mkdir -p ~/.pi/agent/themes
-cp extras/pi/origin.json ~/.pi/agent/themes/origin.json
-```
-
-```json
-{
-  "theme": "origin"
-}
-```
-
 ## Health check
 
 Run the built-in health check after installation:

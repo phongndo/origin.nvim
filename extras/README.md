@@ -36,17 +36,6 @@ source-file ~/.config/tmux/origin.conf
 config.colors = dofile(wezterm.config_dir .. "/origin.lua")
 ```
 
-## Pi
-
-Copy the Pi theme to its global theme directory:
-
-```sh
-mkdir -p ~/.pi/agent/themes
-cp pi/origin.json ~/.pi/agent/themes/origin.json
-```
-
-Then set `"theme": "origin"` in `~/.pi/agent/settings.json` or select Origin from `/settings`.
-
 The files are generated from [`lua/origin/palette.lua`](../lua/origin/palette.lua). After changing the palette, regenerate them with:
 
 ```sh
