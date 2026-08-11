@@ -8,12 +8,14 @@ All notable changes to Origin are documented here. This project follows [Semanti
 
 - Neovim screenshot in the README.
 - hk pre-commit and pre-push checks with pinned development tools.
+- High-contrast `aurora` green for success states, additions, integrations, and terminal green slots.
 
 ### Changed
 
 - Lowered the default `starlight` color from `#F7F4ED` to `#DCD9D2` to improve the distinction between regular and bold text.
 - Simplified the README, help file, and contribution guide.
 - Made floating windows, completion menus, and plugin surfaces inherit terminal transparency when `transparent = true`.
+- Reserved aurora for diffs, success states, and integrations instead of syntax highlighting.
 
 ### Fixed
 

@@ -27,7 +27,7 @@ local base_color_count = 0
 for _ in pairs(palette_module.base) do
   base_color_count = base_color_count + 1
 end
-assert(base_color_count == 6)
+assert(base_color_count == 7)
 assert(origin.version == "0.1.0")
 assert(not pcall(palette_module.get, { void = "black" }))
 origin.setup()
@@ -51,6 +51,9 @@ for _, group in ipairs({ "Constant", "String", "Character", "Number", "Boolean",
   assert(not highlight(group).italic)
   assert(not highlight(group).underline)
 end
+assert(highlight("SpecialChar").fg == hex(c.starlight))
+assert(highlight("SpecialChar").bold)
+assert(highlight("@markup.list.checked").fg == hex(c.starlight))
 assert(highlight("Comment").italic)
 
 -- Language-specific Tree-sitter captures.
@@ -109,13 +112,13 @@ assert(not highlight("@lsp.typemod.function.definition").underline)
 assert(highlight("DiagnosticError").fg == hex(c.redshift))
 assert(highlight("DiagnosticWarn").fg == hex(c.corona))
 assert(highlight("DiagnosticInfo").fg == hex(c.blueshift))
-assert(highlight("DiagnosticOk").fg == hex(c.blueshift))
+assert(highlight("DiagnosticOk").fg == hex(c.aurora))
 for severity, color in pairs({
   Error = c.redshift,
   Warn = c.corona,
   Info = c.blueshift,
   Hint = c.ash,
-  Ok = c.blueshift,
+  Ok = c.aurora,
 }) do
   local group = highlight("DiagnosticUnderline" .. severity)
   assert(group.fg == nil)
@@ -124,7 +127,7 @@ for severity, color in pairs({
   assert(not group.nocombine)
   assert(group.undercurl)
 end
-assert(highlight("GitSignsAdd").fg == hex(c.blueshift))
+assert(highlight("GitSignsAdd").fg == hex(c.aurora))
 assert(highlight("TelescopeMatching").fg == hex(c.corona))
 assert(highlight("BlinkCmpKindFunction").fg == hex(c.muted))
 assert(highlight("MiniIconsRed").fg == hex(c.muted))
@@ -136,16 +139,17 @@ assert(lualine.insert.a.bg == c.starlight)
 assert(lualine.replace.a.bg == c.redshift)
 assert(vim.g.terminal_color_0 == c.void)
 assert(vim.g.terminal_color_1 == c.redshift)
-assert(vim.g.terminal_color_2 == c.blueshift)
+assert(vim.g.terminal_color_2 == c.aurora)
 assert(vim.g.terminal_color_3 == c.corona)
 assert(vim.g.terminal_color_5 == c.ash)
 assert(vim.g.terminal_color_6 == c.blueshift)
+assert(vim.g.terminal_color_10 == c.aurora_bright)
 assert(vim.g.terminal_color_15 == c.starlight)
 
-for _, name in ipairs({ "starlight", "ash", "corona", "redshift", "blueshift" }) do
+for _, name in ipairs({ "starlight", "ash", "corona", "redshift", "aurora", "blueshift" }) do
   assert(contrast(c.void, c[name]) >= 7.0, name .. " does not meet WCAG AAA")
 end
-for _, name in ipairs({ "corona", "redshift", "blueshift" }) do
+for _, name in ipairs({ "corona", "redshift", "aurora", "blueshift" }) do
   assert(c[name .. "_dim"] ~= c[name])
   assert(c[name .. "_bright"] ~= c[name])
 end

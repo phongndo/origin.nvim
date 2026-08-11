@@ -7,6 +7,7 @@ M.base = {
   ash = "#9A96A0",
   corona = "#E8A15F",
   redshift = "#E77E70",
+  aurora = "#7FCB8F",
   blueshift = "#82A8E0",
 }
 
@@ -40,7 +41,7 @@ function M.get(overrides)
   c.halo = c.starlight
 
   -- Generate dim and bright accent variants.
-  for _, name in ipairs({ "corona", "redshift", "blueshift" }) do
+  for _, name in ipairs({ "corona", "redshift", "aurora", "blueshift" }) do
     c[name .. "_dim"] = blend(c[name], c.void, 0.14)
     c[name .. "_bright"] = blend(c.starlight, c[name], 0.14)
   end
@@ -52,12 +53,12 @@ function M.get(overrides)
   c.border = blend(c.ash, c.void, 0.78)
   c.subtle = blend(c.ash, c.void, 0.80)
 
-  -- Tinted surfaces use dim shades from the three disk colors.
+  -- Tinted surfaces use dim shades from the semantic accents.
   c.selection = blend(c.blueshift, c.void, 0.20)
   c.warm_surface = blend(c.corona, c.void, 0.18)
   c.info_surface = c.blueshift_dim
-  c.success_surface = c.blueshift_dim
-  c.diff_add = c.blueshift_dim
+  c.success_surface = c.aurora_dim
+  c.diff_add = c.aurora_dim
   c.diff_change = c.corona_dim
   c.diff_delete = c.redshift_dim
 

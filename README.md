@@ -113,9 +113,10 @@ Style values and highlight overrides accept fields supported by `nvim_set_hl()`.
 | `ash` | `#9A96A0` | Comments, punctuation, and secondary UI |
 | `corona` | `#E8A15F` | Control flow, warnings, search, and changed state |
 | `redshift` | `#E77E70` | Errors, conflicts, and removals |
-| `blueshift` | `#82A8E0` | Types, information, and additions |
+| `aurora` | `#7FCB8F` | Success and additions |
+| `blueshift` | `#82A8E0` | Types and information |
 
-Background surfaces and dim/bright variants are generated from these values. The default foreground colors meet WCAG AAA contrast against the background.
+Background surfaces and dim/bright variants are generated from these values. Aurora is reserved for diffs, success states, and integrations; it is not used for syntax highlighting. Redshift is reserved for error and removal states. All base foreground colors meet WCAG AAA contrast against the background.
 
 ## Lualine
 

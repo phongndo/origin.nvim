@@ -6,7 +6,7 @@ local c = require("origin.palette").get()
 local ansi = {
   c.void,
   c.redshift,
-  c.blueshift,
+  c.aurora,
   c.corona,
   c.blueshift,
   c.ash,
@@ -14,7 +14,7 @@ local ansi = {
   c.starlight,
   c.ash,
   c.redshift_bright,
-  c.blueshift_bright,
+  c.aurora_bright,
   c.corona_bright,
   c.blueshift_bright,
   c.starlight,

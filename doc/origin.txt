@@ -90,11 +90,14 @@ integrations ~
                                                         *origin-palette*
 palette ~
     Override one or more base colors. Valid keys are `void`, `starlight`,
-    `ash`, `corona`, `redshift`, and `blueshift`. Values must be six-digit hex
-    colors. Generated shades and surfaces are recalculated automatically. >lua
+    `ash`, `corona`, `redshift`, `aurora`, and `blueshift`. Values must be
+    six-digit hex colors. Generated shades and surfaces are recalculated
+    automatically. Aurora is reserved for diffs, success states, and
+    integrations rather than syntax highlighting. >lua
 
       palette = {
         corona = "#FFC06E",
+        aurora = "#9ACA8F",
         blueshift = "#82B1FF",
       }
 <
