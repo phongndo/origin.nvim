@@ -110,13 +110,14 @@ Style values and highlight overrides accept fields supported by `nvim_set_hl()`.
 | --- | --- | --- |
 | `void` | `#050507` | Background |
 | `starlight` | `#DCD9D2` | Foreground and prominent UI text |
+| `supernova` | `#F7F4ED` | Bright neutral source for the active cursor line |
 | `ash` | `#9A96A0` | Comments, punctuation, and secondary UI |
-| `corona` | `#E8A15F` | Control flow, warnings, search, and changed state |
-| `redshift` | `#E77E70` | Errors, conflicts, and removals |
-| `aurora` | `#7FCB8F` | Success and additions |
-| `blueshift` | `#82A8E0` | Types and information |
+| `corona` | `#FFA657` | Control flow, warnings, search, and changed state |
+| `redshift` | `#FF6A69` | Errors, conflicts, and removals |
+| `aurora` | `#26CD4D` | Success and additions |
+| `blueshift` | `#71B7FF` | Types and information |
 
-Background surfaces and dim/bright variants are generated from these values. Aurora is reserved for diffs, success states, and integrations; it is not used for syntax highlighting. Redshift is reserved for error and removal states. All base foreground colors meet WCAG AAA contrast against the background.
+Background surfaces, the active cursor-line tint, and dim/bright variants are generated from these values. Aurora is reserved for diffs, success states, and integrations; it is not used for syntax highlighting. Redshift is reserved for error and removal states. All base foreground colors meet WCAG AAA contrast against the background.
 
 ## Lualine
 

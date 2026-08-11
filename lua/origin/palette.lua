@@ -4,11 +4,12 @@ local M = {}
 M.base = {
   void = "#050507",
   starlight = "#DCD9D2",
+  supernova = "#F7F4ED",
   ash = "#9A96A0",
-  corona = "#E8A15F",
-  redshift = "#E77E70",
-  aurora = "#7FCB8F",
-  blueshift = "#82A8E0",
+  corona = "#FFA657",
+  redshift = "#FF6A69",
+  aurora = "#26CD4D",
+  blueshift = "#71B7FF",
 }
 
 local function channel(hex, offset)
@@ -46,10 +47,11 @@ function M.get(overrides)
     c[name .. "_bright"] = blend(c.starlight, c[name], 0.14)
   end
 
-  -- Neutral depth without expanding the base palette.
+  -- Neutral depth and a stronger active-line tint.
   c.surface0 = blend(c.starlight, c.void, 0.035)
   c.surface1 = blend(c.starlight, c.void, 0.065)
   c.surface2 = blend(c.starlight, c.void, 0.10)
+  c.cursor_line = blend(c.supernova, c.void, 0.14)
   c.border = blend(c.ash, c.void, 0.78)
   c.subtle = blend(c.ash, c.void, 0.80)
 

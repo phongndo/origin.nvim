@@ -27,7 +27,7 @@ local base_color_count = 0
 for _ in pairs(palette_module.base) do
   base_color_count = base_color_count + 1
 end
-assert(base_color_count == 7)
+assert(base_color_count == 8)
 assert(origin.version == "0.1.0")
 assert(not pcall(palette_module.get, { void = "black" }))
 origin.setup()
@@ -37,6 +37,8 @@ local c = origin.get_palette()
 assert(vim.g.colors_name == "origin")
 assert(highlight("Normal").fg == hex(c.starlight))
 assert(highlight("Normal").bg == hex(c.void))
+assert(highlight("CursorLine").bg == hex(c.cursor_line))
+assert(highlight("CursorLineSign").bg == hex(c.cursor_line))
 assert(highlight("Keyword").fg == hex(c.starlight))
 assert(highlight("Keyword").bold)
 assert(highlight("Function").fg == hex(c.starlight))
@@ -146,7 +148,15 @@ assert(vim.g.terminal_color_6 == c.blueshift)
 assert(vim.g.terminal_color_10 == c.aurora_bright)
 assert(vim.g.terminal_color_15 == c.starlight)
 
-for _, name in ipairs({ "starlight", "ash", "corona", "redshift", "aurora", "blueshift" }) do
+for _, name in ipairs({
+  "starlight",
+  "supernova",
+  "ash",
+  "corona",
+  "redshift",
+  "aurora",
+  "blueshift",
+}) do
   assert(contrast(c.void, c[name]) >= 7.0, name .. " does not meet WCAG AAA")
 end
 for _, name in ipairs({ "corona", "redshift", "aurora", "blueshift" }) do
@@ -155,6 +165,7 @@ for _, name in ipairs({ "corona", "redshift", "aurora", "blueshift" }) do
 end
 assert(contrast(c.void, c.subtle) >= 4.5, "subtle text does not meet WCAG AA")
 assert(contrast(c.void, c.border) >= 4.5, "borders do not meet WCAG AA")
+assert(contrast(c.void, c.cursor_line) > contrast(c.void, c.surface2), "cursor line is too subtle")
 
 origin.setup({
   transparent = true,
