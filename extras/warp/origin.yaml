@@ -1,20 +1,20 @@
 # Origin — generated from lua/origin/palette.lua
 accent: "#DCD9D2"
-background: "#050507"
+background: "#0A0B0A"
 details: darker
 foreground: "#DCD9D2"
 terminal_colors:
   normal:
-    black: "#050507"
+    black: "#0A0B0A"
     red: "#FF6A69"
     green: "#26CD4D"
     yellow: "#FFA657"
     blue: "#71B7FF"
-    magenta: "#9A96A0"
+    magenta: "#9D99A3"
     cyan: "#71B7FF"
     white: "#DCD9D2"
   bright:
-    black: "#9A96A0"
+    black: "#9D99A3"
     red: "#FA7A78"
     green: "#3FCF60"
     yellow: "#FAAD68"

@@ -2,10 +2,10 @@ local M = {}
 
 -- Configurable base colors. UI shades and surfaces are generated below.
 M.base = {
-  void = "#050507",
+  void = "#0A0B0A",
   starlight = "#DCD9D2",
   supernova = "#F7F4ED",
-  ash = "#9A96A0",
+  ash = "#9D99A3",
   corona = "#FFA657",
   redshift = "#FF6A69",
   aurora = "#26CD4D",

@@ -108,10 +108,10 @@ Style values and highlight overrides accept fields supported by `nvim_set_hl()`.
 
 | Key | Color | Default use |
 | --- | --- | --- |
-| `void` | `#050507` | Background |
+| `void` | `#0A0B0A` | Background |
 | `starlight` | `#DCD9D2` | Foreground and prominent UI text |
 | `supernova` | `#F7F4ED` | Bright neutral source for the active cursor line |
-| `ash` | `#9A96A0` | Comments, punctuation, and secondary UI |
+| `ash` | `#9D99A3` | Comments, punctuation, and secondary UI |
 | `corona` | `#FFA657` | Control flow, warnings, search, and changed state |
 | `redshift` | `#FF6A69` | Errors, conflicts, and removals |
 | `aurora` | `#26CD4D` | Success and additions |

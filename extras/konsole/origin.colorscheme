@@ -4,16 +4,16 @@ Description=Origin
 Opacity=1
 
 [Background]
-Color=5,5,7
+Color=10,11,10
 
 [Foreground]
 Color=220,217,210
 
 [Color0]
-Color=5,5,7
+Color=10,11,10
 
 [Color0Intense]
-Color=154,150,160
+Color=157,153,163
 
 [Color1]
 Color=255,106,105
@@ -40,7 +40,7 @@ Color=113,183,255
 Color=128,188,249
 
 [Color5]
-Color=154,150,160
+Color=157,153,163
 
 [Color5Intense]
 Color=220,217,210
