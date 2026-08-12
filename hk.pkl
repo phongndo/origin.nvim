@@ -19,13 +19,13 @@ local fast = new Mapping<String, Step | Group> {
 
   ["stylua"] {
     glob = List("colors/**/*.lua", "lua/**/*.lua", "scripts/**/*.lua", "tests/**/*.lua")
-    check = "mise x -- stylua --check {{files}}"
-    fix = "mise x -- stylua {{files}}"
+    check = "stylua --check {{files}}"
+    fix = "stylua {{files}}"
     check_first = true
   }
 
   ["actionlint"] = (Builtins.actionlint) {
-    check = "mise x -- actionlint {{files}}"
+    check = "actionlint {{files}}"
   }
 }
 
@@ -44,7 +44,7 @@ local full = new Mapping<String, Step | Group> {
       "scripts/**",
       "tests/**",
     )
-    check = "make check STYLUA='mise x -- stylua'"
+    check = "make check STYLUA=stylua"
     exclusive = true
   }
 }

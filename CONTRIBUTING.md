@@ -4,23 +4,21 @@ Contributions and bug reports are welcome.
 
 ## Requirements
 
-- Neovim 0.9+
-- GNU Make
-- [mise](https://mise.jdx.dev/) for pinned development tools
+- Nix with flakes enabled
 
 ## Development
 
 ```sh
 git clone https://github.com/phongndo/origin.nvim
 cd origin.nvim
-mise install
+nix develop
 make test
 ```
 
 Install the repository's [hk](https://github.com/jdx/hk) hooks:
 
 ```sh
-mise x -- hk install --mise
+hk install --global
 ```
 
 The pre-commit hook fixes formatting and runs repository hygiene checks. The pre-push hook runs the full test and generated-file checks.
