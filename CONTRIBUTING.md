@@ -18,10 +18,10 @@ make test
 Install the repository's [hk](https://github.com/jdx/hk) hooks:
 
 ```sh
-hk install --global
+hk install
 ```
 
-The pre-commit hook fixes formatting and runs repository hygiene checks. The pre-push hook runs the full test and generated-file checks.
+The hooks call `hk` from the dev shell, so commit and push from inside `nix develop`. The pre-commit hook fixes formatting and runs repository hygiene checks. The pre-push hook runs the full test and generated-file checks.
 
 The main implementation files are:
 
